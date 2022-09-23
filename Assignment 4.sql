@@ -69,7 +69,7 @@ select * from question as q
     join categoryquestion as cq on q.categoryid = cq.categoryid;
     
 -- q13 lấy ra số lượng câu hỏi mỗi loại
-select t.typename,count(t.typeid) as sl from question as q 
+select t.typename,count(q.typeid) as sl from question as q 
 	join typequestion as t on q.typeid = t.typeid
 		group by t.typename;
      
