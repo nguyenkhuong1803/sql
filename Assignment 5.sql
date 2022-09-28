@@ -49,9 +49,19 @@ GROUP BY d.departmentid
 select * from q4a where sl = (select max(sl)from q4a);
 
 -- q5 tạo view có chứa tất cả các câu hỏi do user họ Nguyễn tạo
-create or replace view q5 as
-select q.questionid,q.content,q.categoryid,q.typeid,q.createdate,a.fullname as creator
-from question as q left join `account` as a on q.creatorid = a.accountid
-where a.fullname like 'Nguyễn%';
+CREATE OR REPLACE VIEW q5 AS
+    SELECT 
+        q.questionid,
+        q.content,
+        q.categoryid,
+        q.typeid,
+        q.createdate,
+        a.fullname AS creator
+    FROM
+        question AS q
+            LEFT JOIN
+        `account` AS a ON q.creatorid = a.accountid
+    WHERE
+        a.fullname LIKE 'Nguyễn%'
 
 
